@@ -1,0 +1,29 @@
+{% extends "base_template.html" %}
+
+{% block title %}{{ vehicle[0]['placa'] }}{% endblock %}
+
+{% block content %}    
+    tipo de vehiculo: {{ vehicle[0]['typeVehicle'] }}
+    placa: {{ vehicle[0]['placa'] }}
+    cedula: {{ vehicle[0]['cc'] }}
+    foto: {{ vehicle[0]['foto'] }}
+    cilindraje: {{ vehicle[0]['capacity'] }}
+    tiempos: {{ vehicle[0]['times'] }}
+    modelo: {{ vehicle[0]['model'] }}
+    # de puertas: {{ vehicle[0]['door'] }}
+    posicion: {{ vehicle[0]['position'] }}
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.placa.label }}
+            {{ form.placa(size=10) }}<br>
+            {{ form.placa.data = vehicle[0]['placa']}}<br>
+            {% for error in form.placa.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </div>    
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+{% endblock %}

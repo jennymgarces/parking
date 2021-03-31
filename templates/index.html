@@ -1,0 +1,11 @@
+{% extends "base_template.html" %}
+
+{% block title %}Parking{% endblock %}
+
+{% block content %}
+    <ul>
+    {% for vehicle in vehicles %}
+        <li>{{ vehicle.placa }}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
